@@ -1,9 +1,5 @@
-Examples from Chapter 8.
+Windows and linux version,
 
-example1.cpp: robot model with three parts: base, lower arm, upper arm
-
-example2.cpp: interactive figure model using stack implementation with stack.h
-
-example3.cpp: interactive figure model using recursive tree structure
+Windows was rushed just to see how well it would work. I uploaded the whole visual studio project, compiled version included.
 
 
