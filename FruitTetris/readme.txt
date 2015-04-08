@@ -9,6 +9,13 @@ To run:
 > make
 > ./FruitTetris
 
+To Play:
+A - S - D - W { left, down, right, up}
+ctrl + arrows (l, r) rotate camera
+Up - rotate block
+space - drop block
+r - restart game
+
 Features:
 
 - added the square block with full rotation range.
