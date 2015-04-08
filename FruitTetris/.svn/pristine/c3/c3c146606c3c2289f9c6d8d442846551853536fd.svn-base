@@ -1,0 +1,230 @@
+/*
+ * Statics.h
+ *
+ *  Created on: Nov 5, 2014
+ *      Author: costin
+ */
+
+#ifndef STATICS_H_
+#define STATICS_H_
+#include "include/Angel.h"
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+#include <unistd.h>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+#include <stack>
+#include <algorithm>
+#include <new>
+#include <vector>
+#include <cstring>
+#include <set>
+
+using namespace std;
+typedef Angel::vec4 point4;
+typedef Angel::vec4 color4;
+//--------- DEFINITIONS---------------------------------------
+
+#define TIME_PER_MOVE	1000
+#define BOARD_WIDTH 	10
+#define BOARD_HEIGHT 	20
+
+//it was 1200, not that we're in 3d and there are 6 faces to a cube:
+#define BOARD_POINTS 	1200*6
+#define _DEBUG 			true;
+//-----------------
+bool 	debug	= true;
+bool	pause_b	= false;
+bool	running	= true; 	// is the program running?
+int 	timer	= 0; 		// keeps track of time
+
+// xsize and ysize represent the window size - updated if window is reshaped to prevent stretching of the game
+int 	xsize	= 600;
+int 	ysize	= 720;
+//----------------------
+
+vector<vec2> toRemove;
+
+//------------------------------------------------------------
+enum grid_size {
+	gridPoints = 134,
+	gridColors = gridPoints
+};
+//------------------------------------------------------------
+enum block_size {
+	//block size
+	s_block = 36,
+	//row size
+	s_row = s_block*10,
+	//board size
+	s_board = s_row*20
+};
+
+/*
+ * ###############################################################
+ * ##	FLOOR
+ * ###############################################################
+ */
+
+/*
+ * floor: i'll make it 120x120, but make the squares half size, which translates to 30x30 in board size
+ *
+ * ..that means 120*120*2*3 points need to be generated
+ */
+
+enum floor_tiles {
+	floor_x = 200,
+	floor_y = 200,
+	floor_verts = 6,
+	floor_tiles = floor_x*floor_y*floor_verts,
+	wall_tile = 36,
+	wall_xy = 30,
+	wall_points = wall_xy*wall_xy*wall_tile,
+	floor_tile_points = floor_tiles + wall_points
+
+};
+//-------------------------
+int Index_floor = 0;
+vec4 floor_tilepoints[floor_tile_points];
+vec3 floor_tilenormals[floor_tile_points];
+vec4 floor_tilecolors[floor_tile_points];
+//------------------------
+
+
+/*
+ * ###############################################################
+ * ##	TILE
+ * ###############################################################
+ */
+
+//for board init
+int Index_tile = 0;
+vec4 tilepoints[s_block*4];
+vec3 tilenormals[s_block*4];
+//----------------------------
+vec2 tile[4];				// An array of 4 2d vectors representing displacement from a 'center' piece of the tile, on the grid
+vec4 tile_color[4];			// An array of 4 4d vectors that keep color information pertaining to blocks. Order tied to title.
+vec2 tilepos = vec2(5, 19);	// The position of the current tile using grid coordinates ((0,0) is the bottom left corner)
+int rotation = 0;
+
+enum tileShape {
+	ShapeL = 0,
+	ShapeSquare = 4,
+	ShapeI = 8,
+	ShapeS = 12,
+	NumRotation = 16
+};
+
+
+vec2 allRotationShape[NumRotation][4] =
+{
+		//TODO: roate using glrotate
+
+		// shape - L
+
+		{vec2(-1,-1), vec2(-1, 0), vec2(0, 0), vec2( 1, 0)},
+		{vec2(1 ,-1), vec2(0 ,-1), vec2(0, 0), vec2( 0, 1)},
+		{vec2(1 , 1), vec2(1 , 0), vec2(0, 0), vec2(-1, 0)},
+		{vec2(-1, 1), vec2(0 , 1), vec2(0, 0), vec2( 0,-1)},
+		// shape square
+
+		{vec2(0, 0), vec2( 1,0), vec2(1,  1), vec2( 0, 1)},
+		{vec2(1, 0), vec2( 1,1), vec2(0,  1), vec2( 0, 0)},
+		{vec2(1, 1), vec2( 0,1), vec2(0,  0), vec2( 1, 0)},
+		{vec2(0, 1), vec2( 0,0), vec2(1,  0), vec2( 1, 1)},
+		// shape - line
+
+		{vec2(-2, 0), vec2(-1,0), vec2(0, 0), vec2(1,0)},
+		{vec2(0, -2), vec2(0,-1), vec2(0, 0), vec2(0,1)},
+		{vec2(1, 0), vec2(0,0), vec2(-1, 0), vec2(-2,0)},
+		{vec2(0, 1), vec2(0,0), vec2(0, -1), vec2(0,-2)},
+
+		// shape s
+
+		{vec2(-1, -1), vec2(0,-1), vec2(0, 0), vec2(1, 0)},
+		{vec2(1, -1), vec2(1,0), vec2(0, 0), vec2(0,1)},
+		{vec2(1, 0), vec2(0,0), vec2(0, -1), vec2(-1, -1)},
+		{vec2(0, 1), vec2(0,0), vec2(1, 0), vec2(1,-1)}
+
+};
+
+/*
+ * ##################################################################
+ * ## COLORS
+ * ##################################################################
+ */
+
+// colors
+vec4 yellow = vec4(1.0, 1.0, 0.0, 1.0);
+vec4 purple = vec4(0.5, 0.0, 1.0, 1.0);
+vec4 red 	= vec4(1.0, 0.5, 0.0, 1.0);
+vec4 green 	= vec4(0.0, 1.0, 0.0, 1.0);
+vec4 orange = vec4(1.0, 0.5, 0.0, 1.0);
+vec4 white  = vec4(1.0, 1.0, 1.0, 0.6);
+vec4 black  = vec4(0.0, 0.0, 0.0, 0.0);
+vec4 grey1  = vec4(0.2, 0.2, 0.4, 0.6);
+vec4 grey2  = vec4(0.5, 0.5, 0.5, 0.4);
+vec4 grey3	= vec4(0.45, 0.40, 0.45, 0.8);
+vec4 grey4	= vec4(0.35, 0.35, 0.35,0.9);
+
+vec4 cTable[7] {yellow,purple,red,green,orange,white,black};
+
+/*
+ * #################################################################
+ * ##	BOARD
+ * #################################################################
+ */
+
+//for board init
+int Index = 0;
+vec4 boardpoints[BOARD_POINTS];
+vec3 normals[BOARD_POINTS];
+
+//board[x][y] represents whether the cell (x,y) is occupied
+bool board			[BOARD_WIDTH][BOARD_HEIGHT];
+bool map			[BOARD_WIDTH][BOARD_HEIGHT];
+
+//keeps track of the highest tile on the column
+int board_top		[BOARD_WIDTH];
+
+//board_colors[x][y] represents colors in occupied cells
+vec4 board_colors	[BOARD_WIDTH][BOARD_HEIGHT];
+
+//An array containing the colour of each of the 10*20*2*3 vertices that make up the board
+//Initially, all will be set to black. As tiles are placed, sets of 6 vertices (2 triangles; 1 square)
+//will be set to the appropriate colour in this array before updating the corresponding VBO
+vec4 boardcolours	[BOARD_POINTS];
+
+
+/*
+ * #################################################################
+ * ##	OPEN_GL
+ * #################################################################
+ */
+
+// location of vertex attributes in the shader program
+GLuint vPosition;
+GLuint vNormal;
+GLuint vColor;
+//loc of Model View Projection
+GLuint MV_loc;
+GLuint Proj_loc;
+
+mat4 Model, View, Projection;
+
+// locations of uniform variables in shader program
+//TODO: still need these?
+GLuint locxsize;
+GLuint locysize;
+enum vaos {VAOGrid, VAOBoard, VAOTile, VAOfloor, VAOcrane, VAO_num};
+enum vbos {VBOGrid, VBOGridColor, VBOBoard, VBOBoardColor, VBOTetri, VBOTetriColor, VBOfloor, VBOfloorColor, VBOcrane, VBOcraneeColor, VBO_num};
+// VAO and VBO
+GLuint vaoIDs[VAO_num]; // One VAO for each object: the grid, the board, the current piece
+GLuint vboIDs[VBO_num]; // Two Vertex Buffer Objects for each VAO (specifying vertex positions and colours, respectively)
+
+
+
+
+#endif /* STATICS_H_ */

@@ -1,0 +1,152 @@
+﻿Build started 11/12/2014 10:10:22 PM.
+     1>Project "D:\Fruit_Tetris_3d\WINDOWS_VERSIONS\Fruit Tetris 3D.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /Gm- /EHsc /MT /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt FruitTetris.cpp include\InitShader.cpp
+         FruitTetris.cpp
+     1>d:\fruit_tetris_3d\windows_versions\include/Angel.h(65): warning C4305: 'initializing' : truncation from 'double' to 'const GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(698): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(699): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(700): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(721): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(723): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(726): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(742): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Statics.h(176): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Statics.h(178): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Statics.h(179): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Statics.h(180): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Statics.h(181): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\robo_arm.h(33): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\robo_arm.h(39): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\robo_arm.h(104): warning C4244: 'argument' : conversion from 'double' to 'const GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\robo_arm.h(114): warning C4244: 'argument' : conversion from 'double' to 'const GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\robo_arm.h(124): warning C4244: 'argument' : conversion from 'double' to 'const GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\robo_arm.h(182): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\robo_arm.h(183): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(29): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(30): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(34): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(35): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(39): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(40): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(46): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(47): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(118): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(118): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(119): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(119): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(120): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(120): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(121): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(121): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(122): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(122): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(123): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(123): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(124): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(124): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(125): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(125): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(246): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(247): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(248): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(249): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(269): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(270): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(271): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(272): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(273): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(274): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(275): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(276): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(306): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(307): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(308): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(309): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(310): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(311): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(312): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(313): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(375): warning C4244: '=' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(376): warning C4244: '=' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(420): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(420): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(421): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(421): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(422): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(422): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(423): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(423): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(424): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(424): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(425): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(425): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(426): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(426): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(427): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(427): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(507): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(600): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(602): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(604): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(606): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(607): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Initiators.h(608): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(66): warning C4244: 'initializing' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(67): warning C4244: 'initializing' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(105): warning C4244: 'argument' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(110): warning C4244: 'argument' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(134): warning C4244: '=' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(135): warning C4244: '=' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(187): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(188): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(229): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(358): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(368): warning C4244: '=' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(369): warning C4244: '=' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(373): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(375): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(377): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(379): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(392): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(412): warning C4244: 'argument' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(453): warning C4244: 'initializing' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(454): warning C4244: 'initializing' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(568): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(569): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(570): warning C4244: '=' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(630): warning C4244: '=' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\Methods.h(631): warning C4244: '=' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>FruitTetris.cpp(71): warning C4305: 'argument' : truncation from 'double' to 'const GLfloat'
+     1>FruitTetris.cpp(89): warning C4244: 'argument' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>FruitTetris.cpp(150): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
+     1>FruitTetris.cpp(151): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>FruitTetris.cpp(152): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
+     1>FruitTetris.cpp(173): warning C4244: 'argument' : conversion from 'double' to 'const GLfloat', possible loss of data
+     1>FruitTetris.cpp(307): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+         InitShader.cpp
+     1>d:\fruit_tetris_3d\windows_versions\include\Angel.h(65): warning C4305: 'initializing' : truncation from 'double' to 'const GLfloat'
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(698): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(699): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(700): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(721): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(723): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(726): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\fruit_tetris_3d\windows_versions\include\mat.h(742): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>include\InitShader.cpp(10): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : see declaration of 'fopen'
+         Generating Code...
+     1>d:\fruit_tetris_3d\windows_versions\initiators.h(472): warning C4715: 'randomColor' : not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Fruit_Tetris_3d\WINDOWS_VERSIONS\Release\Fruit Tetris 3D.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Fruit_Tetris_3d\WINDOWS_VERSIONS\Release\Fruit Tetris 3D.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Fruit_Tetris_3d\WINDOWS_VERSIONS\Release\Fruit Tetris 3D.lib" /MACHINE:X86 /SAFESEH Release\FruitTetris.obj
+         Release\InitShader.obj
+     1>LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/OPT:ICF' specification
+     1>glew32s.lib(glew.obj) : warning LNK4204: 'D:\Fruit_Tetris_3d\WINDOWS_VERSIONS\Release\vc120.pdb' is missing debugging information for referencing module; linking object as if no debug info
+         Fruit Tetris 3D.vcxproj -> D:\Fruit_Tetris_3d\WINDOWS_VERSIONS\Release\Fruit Tetris 3D.exe
+     1>Done Building Project "D:\Fruit_Tetris_3d\WINDOWS_VERSIONS\Fruit Tetris 3D.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.94

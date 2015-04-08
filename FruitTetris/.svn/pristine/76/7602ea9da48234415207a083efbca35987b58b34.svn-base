@@ -1,0 +1,287 @@
+/*
+ * Initiators.h
+ *
+ *  Created on: Nov 6, 2014
+ *      Author: costin
+ */
+
+#include "Statics.h"
+
+#ifndef INITIATORS_H_
+#define INITIATORS_H_
+
+
+/*
+ * #######################################################################################
+ * ## GRID
+ * #######################################################################################
+ */
+
+void initGrid()
+{
+	// ***Generate geometry data
+	vec4 gridpoints[64]; // Array containing the 64 points of the 32 total lines to be later put in the VBO
+	vec4 gridcolours[64]; // One colour per vertex
+	// Vertical lines
+	for (int i = 0; i < 11; i++){
+		gridpoints[2*i] = vec4((33.0 + (33.0 * i)), 33.0, 0, 1);
+		gridpoints[2*i + 1] = vec4((33.0 + (33.0 * i)), 693.0, 0, 1);
+
+	}
+	// Horizontal lines
+	for (int i = 0; i < 21; i++){
+		gridpoints[22 + 2*i] = vec4(33.0, (33.0 + (33.0 * i)), 0, 1);
+		gridpoints[22 + 2*i + 1] = vec4(363.0, (33.0 + (33.0 * i)), 0, 1);
+	}
+	// Make all grid lines white
+	for (int i = 0; i < 64; i++)
+		gridcolours[i] = white;
+
+
+	// *** set up buffer objects
+	// Set up first VAO (representing grid lines)
+	glBindVertexArray(vaoIDs[VAOGrid]); // Bind the first VAO
+	glGenBuffers(2, vboIDs); // Create two Vertex Buffer Objects for this VAO (positions, colours)
+
+	// Grid vertex positions
+	glBindBuffer(GL_ARRAY_BUFFER, vboIDs[VBOGrid]); // Bind the first grid VBO (vertex positions)
+	glBufferData(GL_ARRAY_BUFFER, 64*sizeof(vec4), gridpoints, GL_STATIC_DRAW); // Put the grid points in the VBO
+	glVertexAttribPointer(vPosition, 4, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(vPosition); // Enable the attribute
+
+	// Grid vertex colours
+	glBindBuffer(GL_ARRAY_BUFFER, vboIDs[VBOGridColor]); // Bind the second grid VBO (vertex colours)
+	glBufferData(GL_ARRAY_BUFFER, 64*sizeof(vec4), gridcolours, GL_STATIC_DRAW); // Put the grid colours in the VBO
+	glVertexAttribPointer(vColor, 4, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(vColor); // Enable the attribute
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+/*
+ * #######################################################################################
+ * ## BOARD
+ * #######################################################################################
+ */
+
+void initBoard()
+{
+	// *** Generate the geometric data
+	vec4 boardpoints[1200];
+	for (int i = 0; i < 1200; i++)
+		boardcolours[i] = black; // Let the empty cells on the board be black
+	// Each cell is a square (2 triangles with 6 vertices)
+	for (int i = 0; i < 20; i++){
+		for (int j = 0; j < 10; j++)
+		{
+			vec4 p1 = vec4(33.0 + (j * 33.0), 33.0 + (i * 33.0), .5, 1);
+			vec4 p2 = vec4(33.0 + (j * 33.0), 66.0 + (i * 33.0), .5, 1);
+			vec4 p3 = vec4(66.0 + (j * 33.0), 33.0 + (i * 33.0), .5, 1);
+			vec4 p4 = vec4(66.0 + (j * 33.0), 66.0 + (i * 33.0), .5, 1);
+
+			// Two points are reused
+			boardpoints[6*(10*i + j)    ] = p1;
+			boardpoints[6*(10*i + j) + 1] = p2;
+			boardpoints[6*(10*i + j) + 2] = p3;
+			boardpoints[6*(10*i + j) + 3] = p2;
+			boardpoints[6*(10*i + j) + 4] = p3;
+			boardpoints[6*(10*i + j) + 5] = p4;
+		}
+	}
+
+	// Initially no cell is occupied
+	for (int i = 0; i < 10; i++)
+		for (int j = 0; j < 20; j++)
+			board[i][j] = false;
+
+
+	// *** set up buffer objects
+	glBindVertexArray(vaoIDs[VAOBoard]);
+	glGenBuffers(2, &vboIDs[VBOBoard]);
+
+	// Grid cell vertex positions
+	glBindBuffer(GL_ARRAY_BUFFER, vboIDs[VBOBoard]);
+	glBufferData(GL_ARRAY_BUFFER, 1200*sizeof(vec4), boardpoints, GL_STATIC_DRAW);
+	glVertexAttribPointer(vPosition, 4, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(vPosition);
+
+	// Grid cell vertex colours
+	glBindBuffer(GL_ARRAY_BUFFER, vboIDs[VBOBoardColor]);
+	glBufferData(GL_ARRAY_BUFFER, 1200*sizeof(vec4), boardcolours, GL_DYNAMIC_DRAW);
+	glVertexAttribPointer(vColor, 4, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(vColor);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+
+/*
+ * #######################################################################################
+ * ## TILE
+ * #######################################################################################
+ */
+
+// When the current tile is moved or rotated (or created), update the VBO containing its vertex position data
+void updatetile()
+{
+	// Bind the VBO containing current tile vertex positions
+	glBindBuffer(GL_ARRAY_BUFFER, vboIDs[VBOTetri]);
+
+	// For each of the 4 'cells' of the tile,
+	for (int i = 0; i < 4; i++)
+	{
+		// Calculate the grid coordinates of the cell
+		GLfloat x = tilepos.x + tile[i].x;
+		GLfloat y = tilepos.y + tile[i].y;
+
+		// Create the 4 corners of the square - these vertices are using location in pixels
+		// These vertices are later converted by the vertex shader
+		vec4 p1 = vec4(33.0 + (x * 33.0), 33.0 + (y * 33.0), .4, 1);
+		vec4 p2 = vec4(33.0 + (x * 33.0), 66.0 + (y * 33.0), .4, 1);
+		vec4 p3 = vec4(66.0 + (x * 33.0), 33.0 + (y * 33.0), .4, 1);
+		vec4 p4 = vec4(66.0 + (x * 33.0), 66.0 + (y * 33.0), .4, 1);
+
+		// Two points are used by two triangles each
+		vec4 newpoints[6] = {p1, p2, p3, p2, p3, p4};
+
+		// Put new data in the VBO
+		glBufferSubData(GL_ARRAY_BUFFER, i*6*sizeof(vec4), 6*sizeof(vec4), newpoints);
+	}
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+vec4 randomColor() //pick a random color from the ones defined
+{
+
+	int rnd = rand() % 5;
+
+	switch(rnd)
+	{
+	case 0:
+		return purple;
+	case 1:
+		return yellow;
+	case 2:
+		return red;
+	case 3:
+		return green;
+	case 4:
+		return orange;
+	}
+}
+
+
+// Called at the start of play and every time a tile is placed
+void newtile()
+{
+	if(board_top[5] >= 18 || board_top[6] >= 18 || board_top[4] >= 18 || board_top[7] >= 18 ) {
+		if(running)
+			cout<<"Game over"<<endl;
+		running = false;
+		return;
+	}
+
+	tilepos = vec2(5 , 18); // Put the tile at the top of the board
+	rotation = rand() % NumRotation; // keep track of rotation and tile, ie: array spot for current config
+
+	// Update the geometry VBO of current tile
+	for (int i = 0; i < 4; i++)
+		tile[i] = allRotationShape[rotation][i]; // Get the 4 pieces of the new tile
+	updatetile();
+
+	// Update the color VBO of current tile
+	vec4 newcolours[24];
+	vec4 block_color;
+	for (int i = 0; i < 4; i++) {
+		block_color = randomColor();
+		tile_color[i] = block_color;
+		for (int s = 0; s < 6; s++)
+			newcolours[(i*6)+s] = block_color; // You should randomize the color
+	}
+	glBindBuffer(GL_ARRAY_BUFFER, vboIDs[VBOTetriColor]); // Bind the VBO containing current tile vertex colors
+	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(newcolours), newcolours); // Put the color data in the VBO
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	glBindVertexArray(0);
+}
+
+void initCurrentTile()
+{
+	glBindVertexArray(vaoIDs[VAOTile]);
+	glGenBuffers(2, &vboIDs[VBOTetri]);
+
+	// Current tile vertex positions
+	glBindBuffer(GL_ARRAY_BUFFER, vboIDs[VBOTetri]);
+	glBufferData(GL_ARRAY_BUFFER, 24*sizeof(vec4), NULL, GL_DYNAMIC_DRAW);
+	glVertexAttribPointer(vPosition, 4, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(vPosition);
+
+	// Current tile vertex colours
+	glBindBuffer(GL_ARRAY_BUFFER, vboIDs[VBOTetriColor]);
+	glBufferData(GL_ARRAY_BUFFER, 24*sizeof(vec4), NULL, GL_DYNAMIC_DRAW);
+	glVertexAttribPointer(vColor, 4, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(vColor);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+/*
+ * #######################################################################################
+ * ## PROGRAM
+ * #######################################################################################
+ */
+
+void init()
+{
+
+
+	// Load shaders and use the shader program
+	GLuint program = InitShader("vshader.glsl", "fshader.glsl");
+	glUseProgram(program);
+
+
+	// Get the location of the attributes (for glVertexAttribPointer() calls)
+	vPosition = glGetAttribLocation(program, "vPosition");
+	vColor = glGetAttribLocation(program, "vColor");
+	MVPlocation = glGetUniformLocation(program, "MVP");
+
+	// Board is now in unit lengths
+	vec3 top = vec3(0, BOARD_HEIGHT + 9, 23);
+	vec3 center = vec3(0, BOARD_HEIGHT/2, 0);
+	View = LookAt(
+			top,
+			center,
+			vec3(0, 1, 0));
+
+	// Create 3 Vertex Array Objects, each representing one 'object'. Store the names in array vaoIDs
+	glGenVertexArrays(3, &vaoIDs[VAOGrid]);
+
+	// Initialize the grid, the board, and the current tile
+	initGrid();
+	initBoard();
+	initCurrentTile();
+
+	// The location of the uniform variables in the shader program
+	locxsize = glGetUniformLocation(program, "xsize");
+	locysize = glGetUniformLocation(program, "ysize");
+
+	// Game initialization
+	newtile(); // create new next tile
+
+	glClearColor(0.0, 0.0, 0.0, 0.0);
+
+	glEnable(GL_MULTISAMPLE);
+	glHint(GL_MULTISAMPLE, GL_NICEST);
+	glAccum (GL_RETURN, 1.0);
+	glEnable(GL_LINE_SMOOTH);
+	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+	glEnable(GL_POINT_SMOOTH);
+	glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+
+
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+
+#endif /* INITIATORS_H_ */
